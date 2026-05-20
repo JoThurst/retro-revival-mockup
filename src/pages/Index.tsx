@@ -39,7 +39,7 @@ const CruznRetro = () => {
       {/* HERO */}
       <section id="top" className="relative min-h-[100svh] flex items-center pt-24 pb-32">
         <div className="absolute inset-0">
-          <img src={arcadeArea} alt="Cruzn Retro arcade area" className="w-full h-full object-cover" width={1536} height={1024} />
+          <img src={interior} alt="Inside Cruzn Retro — packed shelves of retro games and collectibles" className="w-full h-full object-cover" width={1920} height={1280} />
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background/80 to-background/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
           <div className="absolute inset-0 grid-bg opacity-50" />
