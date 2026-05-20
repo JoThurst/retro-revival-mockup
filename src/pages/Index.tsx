@@ -37,38 +37,60 @@ const CruznRetro = () => {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative min-h-[100svh] flex items-center pt-20 pb-32">
+      <section id="top" className="relative min-h-[100svh] flex items-center pt-24 pb-32">
         <div className="absolute inset-0">
           <img src={arcadeArea} alt="Cruzn Retro arcade area" className="w-full h-full object-cover" width={1536} height={1024} />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background" />
-          <div className="absolute inset-0 grid-bg opacity-40" />
-          <div className="absolute inset-0 scanlines opacity-20 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/80 to-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
+          <div className="absolute inset-0 grid-bg opacity-50" />
+          <div className="absolute inset-0 scanlines opacity-15 pointer-events-none" />
+          <div className="hidden md:block absolute top-24 left-6 w-10 h-10 border-t-2 border-l-2 border-[hsl(var(--neon-teal))]/60" />
+          <div className="hidden md:block absolute bottom-10 right-6 w-10 h-10 border-b-2 border-r-2 border-[hsl(var(--neon-purple))]/60" />
         </div>
         <div className="container relative z-10">
           <div className="max-w-3xl">
-            <div className="flex flex-wrap gap-2 mb-6">
-              <span className="chip"><span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--neon-teal))] animate-pulse" /> Vernon, CT</span>
-              <span className="chip">Buy • Sell • Trade</span>
-              <span className="chip">★ Highly rated by local collectors</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/70 backdrop-blur-md border border-border mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--neon-teal))] blink" />
+              <span className="pixel text-[9px] neon-text-teal">NEW STOCK WEEKLY</span>
+              <span className="w-px h-3 bg-border mx-1" />
+              <span className="text-[11px] uppercase tracking-widest text-muted-foreground">Vernon, CT</span>
             </div>
             <h1 className="display text-5xl sm:text-7xl md:text-8xl text-balance leading-[0.95]">
-              Retro Games, Toys & <span className="neon-text-teal">Collectibles</span> in <span className="neon-text-orange">Vernon, CT</span>
+              Retro Games, Toys & <span className="neon-text-teal">Collectibles</span> <span className="text-muted-foreground/80">in</span> <span className="neon-text-orange">Vernon, CT</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
               Step into Cruzn Retro and rediscover the games, figures, cards, and memories that made the
               <span className="text-foreground"> 80s, 90s, and early 2000s </span>
               unforgettable.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer" className="btn-neon-teal"><MapPin className="w-4 h-4" /> Get Directions</a>
-              <a href={PHONE_TEL} className="btn-neon-orange"><Phone className="w-4 h-4" /> Call the Shop</a>
-              <a href={IG_URL} target="_blank" rel="noreferrer" className="btn-ghost-neon"><Instagram className="w-4 h-4" /> Follow on Instagram</a>
-            </div>
-            <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1 text-[hsl(var(--neon-yellow))]">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+
+            <div className="mt-9 flex flex-col sm:flex-row gap-3 sm:items-center">
+              <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer"
+                 className="btn-neon-teal !px-7 !py-4 text-base group">
+                <MapPin className="w-5 h-5" /> Get Directions
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <div className="flex gap-3">
+                <a href={PHONE_TEL} className="btn-ghost-neon flex-1 sm:flex-none"><Phone className="w-4 h-4" /> Call Shop</a>
+                <a href={IG_URL} target="_blank" rel="noreferrer" className="btn-ghost-neon flex-1 sm:flex-none"><Instagram className="w-4 h-4" /> Instagram</a>
               </div>
-              <span>Loved by collectors across CT</span>
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-0.5 text-[hsl(var(--neon-yellow))]">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <span className="text-muted-foreground">Highly rated by local collectors</span>
+              </div>
+              <span className="hidden sm:inline w-px h-4 bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="pixel text-[9px] neon-text-orange">BUY</span>
+                <span className="text-border">/</span>
+                <span className="pixel text-[9px] neon-text-purple">SELL</span>
+                <span className="text-border">/</span>
+                <span className="pixel text-[9px] neon-text-pink">TRADE</span>
+              </div>
             </div>
           </div>
         </div>
