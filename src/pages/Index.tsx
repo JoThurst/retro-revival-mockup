@@ -16,8 +16,16 @@ const IG_URL = "https://www.instagram.com/cruzn_retro/?hl=en";
 const CruznRetro = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* DEMO BANNER */}
+      <div className="fixed top-0 inset-x-0 z-50 bg-[hsl(var(--neon-orange))]/15 border-b border-[hsl(var(--neon-orange))]/40 backdrop-blur-md">
+        <div className="container flex items-center justify-center gap-2 py-1.5 text-center">
+          <span className="pixel text-[8px] neon-text-orange shrink-0">DEMO</span>
+          <span className="text-[10px] sm:text-[11px] text-foreground/80">v1.0 Mockup — images & content are placeholders, subject to owner approval</span>
+        </div>
+      </div>
+
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border">
+      <header className="fixed top-7 inset-x-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border">
         <div className="container flex items-center justify-between h-16">
           <a href="#top" className="flex items-center gap-2">
             <span className="pixel text-[10px] neon-text-teal">CRUZN</span>
@@ -420,9 +428,15 @@ const CruznRetro = () => {
             </a>
           </div>
         </div>
-        <div className="container mt-12 pt-6 border-t border-border text-xs text-muted-foreground flex flex-wrap gap-3 justify-between">
-          <span>© {new Date().getFullYear()} Cruzn Retro. All rights reserved.</span>
-          <span className="pixel text-[9px]">PRESS START TO PLAY</span>
+        <div className="container mt-12 pt-6 border-t border-border text-xs text-muted-foreground space-y-3">
+          <div className="rounded-lg border border-[hsl(var(--neon-orange))]/40 bg-[hsl(var(--neon-orange))]/5 px-4 py-3 text-center">
+            <span className="pixel text-[9px] neon-text-orange">DEMO / MOCKUP</span>
+            <span className="block sm:inline sm:ml-2 text-foreground/80">This is a v1.0 design mockup. All images and content are placeholders and will be updated with owner approval.</span>
+          </div>
+          <div className="flex flex-wrap gap-3 justify-between">
+            <span>© {new Date().getFullYear()} Cruzn Retro. All rights reserved.</span>
+            <span className="pixel text-[9px]">PRESS START TO PLAY</span>
+          </div>
         </div>
       </footer>
 
