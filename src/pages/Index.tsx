@@ -37,38 +37,60 @@ const CruznRetro = () => {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative min-h-[100svh] flex items-center pt-20 pb-32">
+      <section id="top" className="relative min-h-[100svh] flex items-center pt-24 pb-32">
         <div className="absolute inset-0">
           <img src={arcadeArea} alt="Cruzn Retro arcade area" className="w-full h-full object-cover" width={1536} height={1024} />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background" />
-          <div className="absolute inset-0 grid-bg opacity-40" />
-          <div className="absolute inset-0 scanlines opacity-20 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/80 to-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
+          <div className="absolute inset-0 grid-bg opacity-50" />
+          <div className="absolute inset-0 scanlines opacity-15 pointer-events-none" />
+          <div className="hidden md:block absolute top-24 left-6 w-10 h-10 border-t-2 border-l-2 border-[hsl(var(--neon-teal))]/60" />
+          <div className="hidden md:block absolute bottom-10 right-6 w-10 h-10 border-b-2 border-r-2 border-[hsl(var(--neon-purple))]/60" />
         </div>
         <div className="container relative z-10">
           <div className="max-w-3xl">
-            <div className="flex flex-wrap gap-2 mb-6">
-              <span className="chip"><span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--neon-teal))] animate-pulse" /> Vernon, CT</span>
-              <span className="chip">Buy • Sell • Trade</span>
-              <span className="chip">★ Highly rated by local collectors</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/70 backdrop-blur-md border border-border mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--neon-teal))] blink" />
+              <span className="pixel text-[9px] neon-text-teal">NEW STOCK WEEKLY</span>
+              <span className="w-px h-3 bg-border mx-1" />
+              <span className="text-[11px] uppercase tracking-widest text-muted-foreground">Vernon, CT</span>
             </div>
             <h1 className="display text-5xl sm:text-7xl md:text-8xl text-balance leading-[0.95]">
-              Retro Games, Toys & <span className="neon-text-teal">Collectibles</span> in <span className="neon-text-orange">Vernon, CT</span>
+              Retro Games, Toys & <span className="neon-text-teal">Collectibles</span> <span className="text-muted-foreground/80">in</span> <span className="neon-text-orange">Vernon, CT</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
               Step into Cruzn Retro and rediscover the games, figures, cards, and memories that made the
               <span className="text-foreground"> 80s, 90s, and early 2000s </span>
               unforgettable.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer" className="btn-neon-teal"><MapPin className="w-4 h-4" /> Get Directions</a>
-              <a href={PHONE_TEL} className="btn-neon-orange"><Phone className="w-4 h-4" /> Call the Shop</a>
-              <a href={IG_URL} target="_blank" rel="noreferrer" className="btn-ghost-neon"><Instagram className="w-4 h-4" /> Follow on Instagram</a>
-            </div>
-            <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1 text-[hsl(var(--neon-yellow))]">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+
+            <div className="mt-9 flex flex-col sm:flex-row gap-3 sm:items-center">
+              <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer"
+                 className="btn-neon-teal !px-7 !py-4 text-base group">
+                <MapPin className="w-5 h-5" /> Get Directions
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <div className="flex gap-3">
+                <a href={PHONE_TEL} className="btn-ghost-neon flex-1 sm:flex-none"><Phone className="w-4 h-4" /> Call Shop</a>
+                <a href={IG_URL} target="_blank" rel="noreferrer" className="btn-ghost-neon flex-1 sm:flex-none"><Instagram className="w-4 h-4" /> Instagram</a>
               </div>
-              <span>Loved by collectors across CT</span>
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-0.5 text-[hsl(var(--neon-yellow))]">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <span className="text-muted-foreground">Highly rated by local collectors</span>
+              </div>
+              <span className="hidden sm:inline w-px h-4 bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="pixel text-[9px] neon-text-orange">BUY</span>
+                <span className="text-border">/</span>
+                <span className="pixel text-[9px] neon-text-purple">SELL</span>
+                <span className="text-border">/</span>
+                <span className="pixel text-[9px] neon-text-pink">TRADE</span>
+              </div>
             </div>
           </div>
         </div>
@@ -76,7 +98,8 @@ const CruznRetro = () => {
 
       {/* CATEGORIES */}
       <section id="shop" className="py-20 md:py-28 relative">
-        <div className="container">
+        <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
+        <div className="container relative">
           <div className="max-w-2xl mb-12">
             <p className="pixel text-[10px] neon-text-purple mb-3">// INVENTORY</p>
             <h2 className="display text-4xl md:text-6xl">What you'll dig up inside.</h2>
@@ -84,18 +107,30 @@ const CruznRetro = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: Gamepad2, color: "teal", title: "Retro & Modern Games", text: "NES, SNES, N64, PlayStation, Switch — consoles, controllers, and cartridges from every era." },
-              { icon: Sparkles, color: "orange", title: "Pokémon & Trading Cards", text: "Singles, sealed packs, vintage holos, and modern chase cards for serious collectors." },
-              { icon: Bot, color: "purple", title: "Vintage Toys & Action Figures", text: "Star Wars, He-Man, Transformers, TMNT — figures that bring the toy aisle back." },
-              { icon: Disc3, color: "pink", title: "DVDs, VHS & Nostalgia", text: "Cult classics, anime, and pop-culture treasures on the formats that started it all." },
+              { icon: Gamepad2, color: "teal", title: "Retro & Modern Games", text: "NES, SNES, N64, PlayStation, Switch — consoles, controllers, and cartridges from every era.", tag: "LEVEL 99", foot: "READY PLAYER 1" },
+              { icon: Sparkles, color: "orange", title: "Pokémon & Trading Cards", text: "Singles, sealed packs, vintage holos, and modern chase cards for serious collectors.", tag: "HOLO", foot: "1ST EDITION" },
+              { icon: Bot, color: "purple", title: "Vintage Toys & Figures", text: "Star Wars, He-Man, Transformers, TMNT — figures that bring the toy aisle back.", tag: "RARE", foot: "MINT IN BOX" },
+              { icon: Disc3, color: "pink", title: "DVDs, VHS & Nostalgia", text: "Cult classics, anime, and pop-culture treasures on the formats that started it all.", tag: "VINTAGE", foot: "BE KIND REWIND" },
             ].map((c, i) => (
-              <div key={i} className="card-retro card-retro-hover p-6 group">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 neon-text-${c.color}`}
-                     style={{ background: `hsl(var(--neon-${c.color}) / 0.12)`, border: `1px solid hsl(var(--neon-${c.color}) / 0.35)` }}>
-                  <c.icon className="w-6 h-6" />
+              <div key={i} className="card-trading group" style={{ ['--card-accent' as any]: `var(--neon-${c.color})` }}>
+                <div className="card-trading-inner flex flex-col h-full">
+                  <div className="card-trading-header">
+                    <span className={`pixel text-[8px] neon-text-${c.color}`}>#{String(i + 1).padStart(3, "0")} · {c.tag}</span>
+                    <span className="pixel text-[7px] text-muted-foreground">AUTHENTIC</span>
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 neon-text-${c.color}`}
+                         style={{ background: `hsl(var(--neon-${c.color}) / 0.12)`, border: `1px solid hsl(var(--neon-${c.color}) / 0.4)` }}>
+                      <c.icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="display text-2xl mb-2 leading-tight">{c.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.text}</p>
+                    <div className="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+                      <span className={`pixel text-[8px] neon-text-${c.color} opacity-70`}>// {c.foot}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="display text-2xl mb-2">{c.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{c.text}</p>
               </div>
             ))}
           </div>
@@ -351,19 +386,21 @@ const CruznRetro = () => {
       </footer>
 
       {/* STICKY MOBILE BAR */}
-      <div className="fixed bottom-0 inset-x-0 z-50 md:hidden border-t border-border bg-background/90 backdrop-blur-xl">
-        <div className="grid grid-cols-3 text-center">
-          <a href={PHONE_TEL} className="py-3 flex flex-col items-center gap-1 active:bg-muted">
+      <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-background/95 backdrop-blur-xl border-t border-border pb-[env(safe-area-inset-bottom)]">
+        <div className="absolute -top-px inset-x-0 h-px" style={{ background: "var(--gradient-neon)" }} />
+        <div className="grid grid-cols-3 gap-2 p-2">
+          <a href={PHONE_TEL} className="tap-target rounded-xl border border-[hsl(var(--neon-orange))]/40 bg-[hsl(var(--neon-orange))]/5 active:bg-[hsl(var(--neon-orange))]/15">
             <Phone className="w-5 h-5 neon-text-orange" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider">Call</span>
+            <span className="pixel text-[9px] neon-text-orange">CALL</span>
           </a>
-          <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer" className="py-3 flex flex-col items-center gap-1 border-x border-border active:bg-muted">
-            <MapPin className="w-5 h-5 neon-text-teal" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider">Directions</span>
+          <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer"
+             className="tap-target rounded-xl bg-[hsl(var(--neon-teal))] text-[hsl(var(--primary-foreground))] shadow-[0_0_20px_hsl(var(--neon-teal)/0.35)]">
+            <MapPin className="w-5 h-5" />
+            <span className="pixel text-[9px]">DIRECTIONS</span>
           </a>
-          <a href={IG_URL} target="_blank" rel="noreferrer" className="py-3 flex flex-col items-center gap-1 active:bg-muted">
+          <a href={IG_URL} target="_blank" rel="noreferrer" className="tap-target rounded-xl border border-[hsl(var(--neon-purple))]/40 bg-[hsl(var(--neon-purple))]/5 active:bg-[hsl(var(--neon-purple))]/15">
             <Instagram className="w-5 h-5 neon-text-purple" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider">Instagram</span>
+            <span className="pixel text-[9px] neon-text-purple">INSTAGRAM</span>
           </a>
         </div>
       </div>
