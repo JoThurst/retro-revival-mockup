@@ -143,6 +143,42 @@
   }
 }
 
+@layer components {
+  /* Trading-card style category card: gradient neon border + dark inner + holo shimmer on hover */
+  .card-trading {
+    @apply relative rounded-2xl p-[1.5px] transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--card-accent, 174 96% 52%) / 0.9), hsl(var(--card-accent, 174 96% 52%) / 0.15) 40%, hsl(240 8% 18%) 70%);
+  }
+  .card-trading:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px -20px hsl(240 30% 0% / 0.7),
+                0 0 32px hsl(var(--card-accent, 174 96% 52%) / 0.25);
+  }
+  .card-trading-inner {
+    @apply relative h-full rounded-[14px] overflow-hidden;
+    background: linear-gradient(160deg, hsl(240 12% 10%), hsl(240 14% 6%));
+  }
+  .card-trading-inner::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(115deg, transparent 35%, hsl(0 0% 100% / 0.08) 50%, transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 0.9s ease;
+    pointer-events: none;
+  }
+  .card-trading:hover .card-trading-inner::before {
+    transform: translateX(120%);
+  }
+  .card-trading-header {
+    @apply flex items-center justify-between px-4 py-2.5 border-b border-white/5;
+  }
+
+  /* Big mobile tap target */
+  .tap-target {
+    @apply flex flex-col items-center justify-center gap-1 py-3.5 min-h-[64px] active:scale-[0.97] transition-transform;
+  }
+}
+
 @layer utilities {
   .scanlines {
     background-image: repeating-linear-gradient(
@@ -154,4 +190,11 @@
     );
   }
   .text-balance { text-wrap: balance; }
+  .grid-bg-tight { background-image: var(--grid-overlay); background-size: 24px 24px; }
 }
+
+@keyframes blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0.15; }
+}
+.blink { animation: blink 1.2s steps(2) infinite; }
