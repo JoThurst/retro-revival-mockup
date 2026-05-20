@@ -77,12 +77,18 @@ const CruznRetro = () => {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
-              <div className="flex items-center gap-2">
+              <a
+                href="https://www.google.com/search?q=Cruzn+Retro+Vernon+CT"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 group"
+              >
                 <div className="flex items-center gap-0.5 text-[hsl(var(--neon-yellow))]">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
-                <span className="text-muted-foreground">Highly rated by local collectors</span>
-              </div>
+                <span className="font-semibold">4.9</span>
+                <span className="text-muted-foreground group-hover:text-foreground transition-colors">38 reviews on Google</span>
+              </a>
               <span className="hidden sm:inline w-px h-4 bg-border" />
               <div className="flex items-center gap-2">
                 <span className="pixel text-[9px] neon-text-orange">BUY</span>
