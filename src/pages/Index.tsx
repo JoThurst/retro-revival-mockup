@@ -77,12 +77,18 @@ const CruznRetro = () => {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
-              <div className="flex items-center gap-2">
+              <a
+                href="https://www.google.com/search?q=Cruzn+Retro+Vernon+CT"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 group"
+              >
                 <div className="flex items-center gap-0.5 text-[hsl(var(--neon-yellow))]">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
-                <span className="text-muted-foreground">Highly rated by local collectors</span>
-              </div>
+                <span className="font-semibold">4.9</span>
+                <span className="text-muted-foreground group-hover:text-foreground transition-colors">38 reviews on Google</span>
+              </a>
               <span className="hidden sm:inline w-px h-4 bg-border" />
               <div className="flex items-center gap-2">
                 <span className="pixel text-[9px] neon-text-orange">BUY</span>
@@ -243,28 +249,63 @@ const CruznRetro = () => {
       {/* REVIEWS */}
       <section className="py-20 md:py-28 relative">
         <div className="container">
-          <div className="max-w-2xl mb-12">
-            <p className="pixel text-[10px] neon-text-orange mb-3">// REVIEWS</p>
+          <div className="max-w-2xl mb-12 flex flex-col gap-4">
+            <p className="pixel text-[10px] neon-text-orange">// REVIEWS</p>
             <h2 className="display text-4xl md:text-6xl">Loved by local collectors.</h2>
+            <a
+              href="https://www.google.com/search?q=Cruzn+Retro+Vernon+CT"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-3 text-sm group w-fit"
+            >
+              <div className="flex items-center gap-0.5 text-[hsl(var(--neon-yellow))]">
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+              </div>
+              <span className="font-bold">4.9</span>
+              <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                Based on 38 Google reviews
+              </span>
+            </a>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { q: "Killer selection, clean and organized, with inventory priced to sell.", who: "Local collector", tag: "Inventory" },
-              { q: "Great selection, fair prices, and owners cool.", who: "Repeat customer", tag: "Pricing" },
-              { q: "Owner is one of the nicest people around.", who: "Vernon regular", tag: "Service" },
+              {
+                q: "Awesome store with a great vibe. Loads of selections between retro figures and games and even a selection of DVDs and VHS tapes. This store is nostalgia at its finest providing a walk down memory lane. There is even a gaming area that you can play retro consoles or arcade cabinets for free. Ramses was a pleasure to talk with and very knowledgeable. Cruzn Retro has a new customer for life.",
+                who: "Ismael Garcia",
+                tag: "Vernon Regular",
+                initials: "IG",
+              },
+              {
+                q: "Very sleek setup, excellently displayed products, and like all good retro game stores, has a wide assortment of products across generations and types. Definitely worth a visit! Very pleased one of these types of stores opened up in my town.",
+                who: "Robert Busque",
+                tag: "Repeat Customer",
+                initials: "RB",
+              },
+              {
+                q: "Came here on a reco from the YouTube channel \"The Weekly Warp Pipe\". It was only 15 min from my hotel so I had to come. Awesome store with full size arcade cabs and lots of retro goodies. I purchased a Quantum Leap VHS. Cruz is also a very awesome dude. Glad I stopped by. Check it out if you are in the area.",
+                who: "Capt Fwiffo",
+                tag: "Local Guide",
+                initials: "CF",
+              },
             ].map((r, i) => (
-              <article key={i} className="card-retro p-6 relative overflow-hidden">
+              <article key={i} className="card-retro p-6 relative overflow-hidden flex flex-col">
                 <div className="absolute top-0 left-0 right-0 h-1" style={{ background: "var(--gradient-neon)" }} />
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-1 text-[hsl(var(--neon-yellow))]">
                     {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
                   </div>
-                  <span className="pixel text-[8px] text-muted-foreground">#{String(i + 1).padStart(3, "0")}</span>
+                  <span className="pixel text-[8px] text-muted-foreground">GOOGLE</span>
                 </div>
-                <p className="text-lg leading-relaxed mb-6">"{r.q}"</p>
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="text-sm font-semibold">{r.who}</span>
-                  <span className="chip !text-[10px]">{r.tag}</span>
+                <p className="text-[15px] leading-relaxed mb-6 flex-1">"{r.q}"</p>
+                <div className="flex items-center justify-between pt-4 border-t border-border gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+                      style={{ background: "var(--gradient-neon)", color: "hsl(var(--primary-foreground))" }}>
+                      {r.initials}
+                    </div>
+                    <span className="text-sm font-semibold truncate">{r.who}</span>
+                  </div>
+                  <span className="chip !text-[10px] shrink-0">{r.tag}</span>
                 </div>
               </article>
             ))}
