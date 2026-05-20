@@ -98,7 +98,8 @@ const CruznRetro = () => {
 
       {/* CATEGORIES */}
       <section id="shop" className="py-20 md:py-28 relative">
-        <div className="container">
+        <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
+        <div className="container relative">
           <div className="max-w-2xl mb-12">
             <p className="pixel text-[10px] neon-text-purple mb-3">// INVENTORY</p>
             <h2 className="display text-4xl md:text-6xl">What you'll dig up inside.</h2>
@@ -106,18 +107,30 @@ const CruznRetro = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: Gamepad2, color: "teal", title: "Retro & Modern Games", text: "NES, SNES, N64, PlayStation, Switch — consoles, controllers, and cartridges from every era." },
-              { icon: Sparkles, color: "orange", title: "Pokémon & Trading Cards", text: "Singles, sealed packs, vintage holos, and modern chase cards for serious collectors." },
-              { icon: Bot, color: "purple", title: "Vintage Toys & Action Figures", text: "Star Wars, He-Man, Transformers, TMNT — figures that bring the toy aisle back." },
-              { icon: Disc3, color: "pink", title: "DVDs, VHS & Nostalgia", text: "Cult classics, anime, and pop-culture treasures on the formats that started it all." },
+              { icon: Gamepad2, color: "teal", title: "Retro & Modern Games", text: "NES, SNES, N64, PlayStation, Switch — consoles, controllers, and cartridges from every era.", tag: "LEVEL 99", foot: "READY PLAYER 1" },
+              { icon: Sparkles, color: "orange", title: "Pokémon & Trading Cards", text: "Singles, sealed packs, vintage holos, and modern chase cards for serious collectors.", tag: "HOLO", foot: "1ST EDITION" },
+              { icon: Bot, color: "purple", title: "Vintage Toys & Figures", text: "Star Wars, He-Man, Transformers, TMNT — figures that bring the toy aisle back.", tag: "RARE", foot: "MINT IN BOX" },
+              { icon: Disc3, color: "pink", title: "DVDs, VHS & Nostalgia", text: "Cult classics, anime, and pop-culture treasures on the formats that started it all.", tag: "VINTAGE", foot: "BE KIND REWIND" },
             ].map((c, i) => (
-              <div key={i} className="card-retro card-retro-hover p-6 group">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 neon-text-${c.color}`}
-                     style={{ background: `hsl(var(--neon-${c.color}) / 0.12)`, border: `1px solid hsl(var(--neon-${c.color}) / 0.35)` }}>
-                  <c.icon className="w-6 h-6" />
+              <div key={i} className="card-trading group" style={{ ['--card-accent' as any]: `var(--neon-${c.color})` }}>
+                <div className="card-trading-inner flex flex-col h-full">
+                  <div className="card-trading-header">
+                    <span className={`pixel text-[8px] neon-text-${c.color}`}>#{String(i + 1).padStart(3, "0")} · {c.tag}</span>
+                    <span className="pixel text-[7px] text-muted-foreground">AUTHENTIC</span>
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 neon-text-${c.color}`}
+                         style={{ background: `hsl(var(--neon-${c.color}) / 0.12)`, border: `1px solid hsl(var(--neon-${c.color}) / 0.4)` }}>
+                      <c.icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="display text-2xl mb-2 leading-tight">{c.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.text}</p>
+                    <div className="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+                      <span className={`pixel text-[8px] neon-text-${c.color} opacity-70`}>// {c.foot}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="display text-2xl mb-2">{c.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{c.text}</p>
               </div>
             ))}
           </div>
