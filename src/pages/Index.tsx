@@ -386,19 +386,21 @@ const CruznRetro = () => {
       </footer>
 
       {/* STICKY MOBILE BAR */}
-      <div className="fixed bottom-0 inset-x-0 z-50 md:hidden border-t border-border bg-background/90 backdrop-blur-xl">
-        <div className="grid grid-cols-3 text-center">
-          <a href={PHONE_TEL} className="py-3 flex flex-col items-center gap-1 active:bg-muted">
+      <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-background/95 backdrop-blur-xl border-t border-border pb-[env(safe-area-inset-bottom)]">
+        <div className="absolute -top-px inset-x-0 h-px" style={{ background: "var(--gradient-neon)" }} />
+        <div className="grid grid-cols-3 gap-2 p-2">
+          <a href={PHONE_TEL} className="tap-target rounded-xl border border-[hsl(var(--neon-orange))]/40 bg-[hsl(var(--neon-orange))]/5 active:bg-[hsl(var(--neon-orange))]/15">
             <Phone className="w-5 h-5 neon-text-orange" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider">Call</span>
+            <span className="pixel text-[9px] neon-text-orange">CALL</span>
           </a>
-          <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer" className="py-3 flex flex-col items-center gap-1 border-x border-border active:bg-muted">
-            <MapPin className="w-5 h-5 neon-text-teal" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider">Directions</span>
+          <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer"
+             className="tap-target rounded-xl bg-[hsl(var(--neon-teal))] text-[hsl(var(--primary-foreground))] shadow-[0_0_20px_hsl(var(--neon-teal)/0.35)]">
+            <MapPin className="w-5 h-5" />
+            <span className="pixel text-[9px]">DIRECTIONS</span>
           </a>
-          <a href={IG_URL} target="_blank" rel="noreferrer" className="py-3 flex flex-col items-center gap-1 active:bg-muted">
+          <a href={IG_URL} target="_blank" rel="noreferrer" className="tap-target rounded-xl border border-[hsl(var(--neon-purple))]/40 bg-[hsl(var(--neon-purple))]/5 active:bg-[hsl(var(--neon-purple))]/15">
             <Instagram className="w-5 h-5 neon-text-purple" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider">Instagram</span>
+            <span className="pixel text-[9px] neon-text-purple">INSTAGRAM</span>
           </a>
         </div>
       </div>
