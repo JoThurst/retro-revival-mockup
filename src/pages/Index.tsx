@@ -428,9 +428,15 @@ const CruznRetro = () => {
             </a>
           </div>
         </div>
-        <div className="container mt-12 pt-6 border-t border-border text-xs text-muted-foreground flex flex-wrap gap-3 justify-between">
-          <span>© {new Date().getFullYear()} Cruzn Retro. All rights reserved.</span>
-          <span className="pixel text-[9px]">PRESS START TO PLAY</span>
+        <div className="container mt-12 pt-6 border-t border-border text-xs text-muted-foreground space-y-3">
+          <div className="rounded-lg border border-[hsl(var(--neon-orange))]/40 bg-[hsl(var(--neon-orange))]/5 px-4 py-3 text-center">
+            <span className="pixel text-[9px] neon-text-orange">DEMO / MOCKUP</span>
+            <span className="block sm:inline sm:ml-2 text-foreground/80">This is a v1.0 design mockup. All images and content are placeholders and will be updated with owner approval.</span>
+          </div>
+          <div className="flex flex-wrap gap-3 justify-between">
+            <span>© {new Date().getFullYear()} Cruzn Retro. All rights reserved.</span>
+            <span className="pixel text-[9px]">PRESS START TO PLAY</span>
+          </div>
         </div>
       </footer>
 
