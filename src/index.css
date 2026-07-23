@@ -2,199 +2,211 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap');
-
 @layer base {
   :root {
-    --background: 240 14% 6%;
-    --foreground: 40 30% 96%;
+    --background: 0 0% 6%;
+    --foreground: 36 33% 96%;
 
-    --card: 240 12% 9%;
-    --card-foreground: 40 30% 96%;
+    --card: 0 0% 9%;
+    --card-foreground: 36 33% 96%;
 
-    --popover: 240 14% 6%;
-    --popover-foreground: 40 30% 96%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 36 33% 96%;
 
-    --primary: 174 96% 52%;
-    --primary-foreground: 240 14% 6%;
+    --primary: 22 100% 52%;
+    --primary-foreground: 0 0% 6%;
 
-    --secondary: 271 91% 65%;
-    --secondary-foreground: 40 30% 96%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 36 33% 96%;
 
-    --muted: 240 8% 14%;
-    --muted-foreground: 40 10% 70%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 30 8% 68%;
 
-    --accent: 32 100% 58%;
-    --accent-foreground: 240 14% 6%;
+    --accent: 22 100% 52%;
+    --accent-foreground: 0 0% 6%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 40 30% 96%;
+    --destructive-foreground: 36 33% 96%;
 
-    --border: 240 8% 18%;
-    --input: 240 8% 18%;
-    --ring: 174 96% 52%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 22 100% 52%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --neon-teal: 174 96% 52%;
-    --neon-purple: 271 91% 65%;
-    --neon-orange: 32 100% 58%;
-    --neon-pink: 330 95% 62%;
-    --neon-yellow: 48 100% 60%;
+    --brand: 22 100% 52%;
+    --brand-hot: 14 100% 48%;
+    --brand-glow: 32 100% 58%;
+    --ink: 0 0% 4%;
+    --cream: 36 40% 94%;
+    --checker-a: 0 0% 8%;
+    --checker-b: 0 0% 14%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(174 96% 52% / 0.18), hsl(271 91% 65% / 0.18) 50%, hsl(32 100% 58% / 0.18));
-    --gradient-neon: linear-gradient(90deg, hsl(var(--neon-teal)), hsl(var(--neon-purple)));
-    --gradient-card: linear-gradient(160deg, hsl(240 12% 11%), hsl(240 14% 7%));
-
-    --shadow-neon-teal: 0 0 24px hsl(174 96% 52% / 0.45), 0 0 56px hsl(174 96% 52% / 0.22);
-    --shadow-neon-purple: 0 0 24px hsl(271 91% 65% / 0.45), 0 0 56px hsl(271 91% 65% / 0.22);
-    --shadow-neon-orange: 0 0 24px hsl(32 100% 58% / 0.5), 0 0 56px hsl(32 100% 58% / 0.25);
-    --shadow-card: 0 20px 60px -20px hsl(240 30% 0% / 0.6);
-
-    --grid-overlay:
-      linear-gradient(hsl(40 30% 96% / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(40 30% 96% / 0.04) 1px, transparent 1px);
+    --shadow-brand: 0 12px 40px -12px hsl(22 100% 52% / 0.55);
+    --shadow-lift: 0 24px 50px -28px hsl(0 0% 0% / 0.75);
   }
 }
 
 @layer base {
-  * { @apply border-border; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-family: 'Figtree', system-ui, sans-serif;
   }
-  h1, h2, h3, .display {
-    font-family: 'Bebas Neue', 'Inter', sans-serif;
-    letter-spacing: 0.02em;
+
+  h1,
+  h2,
+  h3,
+  .display {
+    font-family: 'Oswald', 'Figtree', sans-serif;
+    letter-spacing: 0.01em;
     line-height: 0.95;
+    text-transform: uppercase;
   }
-  .pixel { font-family: 'Press Start 2P', monospace; letter-spacing: 0; }
-}
 
-@layer components {
-  .grid-bg {
-    background-image: var(--grid-overlay);
-    background-size: 36px 36px;
+  .brand {
+    font-family: 'Bangers', 'Oswald', cursive;
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    text-transform: uppercase;
   }
-  .neon-text-teal { color: hsl(var(--neon-teal)); text-shadow: 0 0 18px hsl(var(--neon-teal) / 0.55); }
-  .neon-text-purple { color: hsl(var(--neon-purple)); text-shadow: 0 0 18px hsl(var(--neon-purple) / 0.55); }
-  .neon-text-orange { color: hsl(var(--neon-orange)); text-shadow: 0 0 18px hsl(var(--neon-orange) / 0.55); }
-  .neon-text-pink { color: hsl(var(--neon-pink)); text-shadow: 0 0 18px hsl(var(--neon-pink) / 0.55); }
 
-  .btn-base {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-200 active:scale-[0.98];
-  }
-  .btn-neon-teal {
-    @apply btn-base;
-    background: hsl(var(--neon-teal));
-    color: hsl(var(--primary-foreground));
-    box-shadow: var(--shadow-neon-teal);
-  }
-  .btn-neon-teal:hover { filter: brightness(1.08); transform: translateY(-1px); }
-
-  .btn-neon-orange {
-    @apply btn-base;
-    background: hsl(var(--neon-orange));
-    color: hsl(var(--primary-foreground));
-    box-shadow: var(--shadow-neon-orange);
-  }
-  .btn-neon-orange:hover { filter: brightness(1.08); transform: translateY(-1px); }
-
-  .btn-neon-purple {
-    @apply btn-base;
-    background: hsl(var(--neon-purple));
+  ::selection {
+    background: hsl(var(--brand) / 0.35);
     color: hsl(var(--foreground));
-    box-shadow: var(--shadow-neon-purple);
-  }
-  .btn-neon-purple:hover { filter: brightness(1.08); transform: translateY(-1px); }
-
-  .btn-ghost-neon {
-    @apply btn-base;
-    background: hsl(var(--card) / 0.6);
-    color: hsl(var(--foreground));
-    border: 1px solid hsl(var(--border));
-    backdrop-filter: blur(8px);
-  }
-  .btn-ghost-neon:hover {
-    border-color: hsl(var(--neon-teal) / 0.6);
-    color: hsl(var(--neon-teal));
-  }
-
-  .card-retro {
-    background: var(--gradient-card);
-    border: 1px solid hsl(var(--border));
-    box-shadow: var(--shadow-card);
-    @apply rounded-2xl;
-  }
-  .card-retro-hover { transition: all 0.25s ease; }
-  .card-retro-hover:hover {
-    border-color: hsl(var(--neon-teal) / 0.5);
-    transform: translateY(-3px);
-    box-shadow: 0 24px 60px -20px hsl(240 30% 0% / 0.7), 0 0 30px hsl(var(--neon-teal) / 0.12);
-  }
-
-  .chip {
-    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest;
-    background: hsl(var(--muted));
-    color: hsl(var(--muted-foreground));
-    border: 1px solid hsl(var(--border));
   }
 }
 
 @layer components {
-  /* Trading-card style category card: gradient neon border + dark inner + holo shimmer on hover */
-  .card-trading {
-    @apply relative rounded-2xl p-[1.5px] transition-all duration-300;
-    background: linear-gradient(135deg, hsl(var(--card-accent, 174 96% 52%) / 0.9), hsl(var(--card-accent, 174 96% 52%) / 0.15) 40%, hsl(240 8% 18%) 70%);
+  .checker-bg {
+    background-color: hsl(var(--checker-a));
+    background-image:
+      linear-gradient(45deg, hsl(var(--checker-b)) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(var(--checker-b)) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsl(var(--checker-b)) 75%),
+      linear-gradient(-45deg, transparent 75%, hsl(var(--checker-b)) 75%);
+    background-size: 28px 28px;
+    background-position: 0 0, 0 14px, 14px -14px, -14px 0;
   }
-  .card-trading:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 24px 60px -20px hsl(240 30% 0% / 0.7),
-                0 0 32px hsl(var(--card-accent, 174 96% 52%) / 0.25);
-  }
-  .card-trading-inner {
-    @apply relative h-full rounded-[14px] overflow-hidden;
-    background: linear-gradient(160deg, hsl(240 12% 10%), hsl(240 14% 6%));
-  }
-  .card-trading-inner::before {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(115deg, transparent 35%, hsl(0 0% 100% / 0.08) 50%, transparent 65%);
-    transform: translateX(-120%);
-    transition: transform 0.9s ease;
+
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: 0.07;
     pointer-events: none;
   }
-  .card-trading:hover .card-trading-inner::before {
-    transform: translateX(120%);
-  }
-  .card-trading-header {
-    @apply flex items-center justify-between px-4 py-2.5 border-b border-white/5;
+
+  .brand-outline {
+    color: hsl(var(--brand));
+    text-shadow:
+      2px 2px 0 hsl(var(--ink)),
+      -1px -1px 0 hsl(var(--ink)),
+      1px -1px 0 hsl(var(--ink)),
+      -1px 1px 0 hsl(var(--ink)),
+      3px 4px 0 hsl(0 0% 0% / 0.45);
   }
 
-  /* Big mobile tap target */
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-extrabold uppercase tracking-wider transition-all duration-200 active:scale-[0.98];
+    background: hsl(var(--brand));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-brand);
+  }
+
+  .btn-brand:hover {
+    background: hsl(var(--brand-hot));
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-200 active:scale-[0.98];
+    background: hsl(0 0% 100% / 0.06);
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(0 0% 100% / 0.14);
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-ghost:hover {
+    border-color: hsl(var(--brand) / 0.7);
+    color: hsl(var(--brand));
+    background: hsl(var(--brand) / 0.08);
+  }
+
+  .section-kicker {
+    @apply text-xs font-extrabold uppercase tracking-[0.22em];
+    color: hsl(var(--brand));
+  }
+
   .tap-target {
-    @apply flex flex-col items-center justify-center gap-1 py-3.5 min-h-[64px] active:scale-[0.97] transition-transform;
+    @apply flex flex-col items-center justify-center gap-1 py-3 min-h-[60px] active:scale-[0.97] transition-transform;
+  }
+
+  .reveal {
+    animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 0.12s;
+  }
+
+  .reveal-delay-2 {
+    animation-delay: 0.24s;
+  }
+
+  .reveal-delay-3 {
+    animation-delay: 0.36s;
   }
 }
 
 @layer utilities {
-  .scanlines {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 3px,
-      hsl(0 0% 0% / 0.12) 3px,
-      hsl(0 0% 0% / 0.12) 4px
-    );
+  .text-balance {
+    text-wrap: balance;
   }
-  .text-balance { text-wrap: balance; }
-  .grid-bg-tight { background-image: var(--grid-overlay); background-size: 24px 24px; }
+
+  .safe-px {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
 }
 
-@keyframes blink {
-  0%, 60% { opacity: 1; }
-  61%, 100% { opacity: 0.15; }
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.blink { animation: blink 1.2s steps(2) infinite; }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+  width: max-content;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-delay-1,
+  .reveal-delay-2,
+  .reveal-delay-3,
+  .marquee-track {
+    animation: none !important;
+  }
+}

@@ -11,6 +11,12 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    watch: {
+      // Windows locks newly copied media; polling avoids EBUSY watcher crashes
+      usePolling: true,
+      interval: 1000,
+      ignored: ["**/src/assets/**/*.mp4", "**/src/assets/**/*.mov"],
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
